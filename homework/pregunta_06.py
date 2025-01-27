@@ -5,6 +5,7 @@ datos requeridos se encuentran en los archivos `tbl0.tsv`, `tbl1.tsv` y
 librerias de pandas para resolver las preguntas.
 """
 
+import pandas as pd
 
 def pregunta_06():
     """
@@ -15,3 +16,13 @@ def pregunta_06():
     ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
     """
+
+    df = pd.read_csv("files/input/tbl1.tsv", sep="\t")
+    df = df["c4"].unique().tolist()
+    df.sort()
+    # la respuesta en mayusculas
+    df = [x.upper() for x in df]
+    print(df)
+    return df
+
+pregunta_06()
